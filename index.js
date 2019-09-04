@@ -112,10 +112,15 @@ function main() {
         console.log('ended');
         draw.pause();
     })
-    document.onmousemove = null;
 }
 
 window.onload = function () {
-    document.onmousemove = main
-
+    document.getElementById('btn')
+        .addEventListener('click', function () {
+            var audio = document.getElementById('audio');
+            main();
+            setTimeout(function () {
+                audio.play();
+            }, 300)
+        }, false)
 };
